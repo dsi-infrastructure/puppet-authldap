@@ -37,15 +37,19 @@ class authldap($nss_admin,$nss_password,$base_dn,$base_host) {
   }
 
   service{'nslcd':
-    ensure  => running,
-    enable  => true,
-    require => Package['nslcd'],
+    ensure     => running,
+    enable     => true,
+    hasstatus  => true,
+    hasrestart => true,
+    require    => Package['nslcd'],
   }
 
   service{'nscd':
-    ensure  => running,
-    enable  => true,
-    require => Package['nscd'],
+    ensure     => running,
+    enable     => true,
+    hasstatus  => true,
+    hasrestart => true,
+    require    => Package['nscd'],
   }
 }
 
