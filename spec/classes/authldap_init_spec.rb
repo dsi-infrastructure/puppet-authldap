@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe 'authldap' do 
   let(:params) { 
-    {:nss_admin    => 'bar',
-     :nss_password => 'gronk',
-     :base_dn      => 'gronk',
-     :base_host    => 'gronk',
+    {:nss_admin    => 'cn=nss_admin,dc=example,dc=com',
+     :nss_password => 'nss_password',
+     :base_dn      => 'dc=example,dc=com',
+     :base_host    => 'ldap://ldap_host',
     }
   }
 
@@ -43,6 +43,12 @@ describe 'authldap' do
       'mode'    => '0640',
     )  
   end
+
+  it { should contain_file('/etc/nslcd.conf').with_content(/uri ldap:\/\/ldap_host/) }
+  it { should contain_file('/etc/nslcd.conf').with_content(/base dc=example,dc=com/) }
+  it { should contain_file('/etc/nslcd.conf').with_content(/binddn cn=nss_admin,dc=example,dc=com/) }
+  it { should contain_file('/etc/nslcd.conf').with_content(/bindpw nss_password/) }
+
   it do 
     should contain_service('nslcd').with(
       'ensure'     => 'running',
