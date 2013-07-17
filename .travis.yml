@@ -22,3 +22,6 @@ gemfile: .gemfile
 notifications:
   email:
     - leonard.tavae@gmail.com
+    - leonard.tavae@informatique.gov.pf
+    - hinatea.raihauti@informatique.gov.pf
+    - stephane.lii@informatique.gov.pf
