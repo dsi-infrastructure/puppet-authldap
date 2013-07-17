@@ -23,3 +23,6 @@ node default {
 }
 ```
 
+# A faire
+
+- Ajouter le support LDAPS/TLS
