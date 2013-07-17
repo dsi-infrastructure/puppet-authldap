@@ -1,3 +1,7 @@
+Testé avec Travis CI
+
+[![Build Status](https://travis-ci.org/sipf-infrastructure/authldap.png?branch=master)](https://travis-ci.org/sipf-infrastructure/authldap)
+
 # Installation du module
 
 Dans le répertoire '/etc/puppet/modules', lancez les commandes suivantes :
