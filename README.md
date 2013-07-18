@@ -25,6 +25,7 @@ node default {
     base_dn      => 'dc=example,dc=com',
     nss_admin    => 'cn=nss_admin,dc=example,dc=com',
     nss_password => 'nss_password',
+    home_path    => '/home',
   }
 }
 ```

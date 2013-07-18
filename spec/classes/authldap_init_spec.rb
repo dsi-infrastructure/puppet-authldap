@@ -6,6 +6,7 @@ describe 'authldap' do
      :nss_password => 'nss_password',
      :base_dn      => 'dc=example,dc=com',
      :base_host    => 'ldap://ldap_host',
+     :home_path    => '/home',
     }
   }
 
@@ -16,6 +17,15 @@ describe 'authldap' do
   it { should contain_package('nscd').with_ensure('installed') }
 
   it { should contain_package('nslcd').with_ensure('installed') }
+
+  it do 
+    should contain_file('/home').with(
+      'ensure'  => 'directory',
+      'owner'   => 'root',
+      'group'   => 'root',
+      'mode'    => '0644',
+    )  
+  end
 
   it do 
     should contain_file('/etc/pam.d/common-session').with(

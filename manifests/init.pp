@@ -1,11 +1,18 @@
 # class authldap
 #
-class authldap($nss_admin,$nss_password,$base_dn,$base_host) {
+class authldap($nss_admin,$nss_password,$base_dn,$base_host,$home_path) {
 
   $packages = ['libpam-ldapd','libnss-ldapd','nscd','nslcd']
 
   package { $packages:
     ensure => installed,
+  }
+
+  file { $home_path:
+    ensure => directory,
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
   }
 
   file { '/etc/pam.d/common-session':
