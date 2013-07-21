@@ -14,7 +14,7 @@ describe 'authldap' do
 
   it { should contain_package('libnss-ldapd').with_ensure('installed') }
 
-  it { should contain_package('nscd').with_ensure('installed') }
+  it { should contain_package('unscd').with_ensure('installed') }
 
   it { should contain_package('nslcd').with_ensure('installed') }
 
@@ -69,7 +69,7 @@ describe 'authldap' do
   end
 
   it do 
-    should contain_service('nscd').with(
+    should contain_service('unscd').with(
       'ensure'     => 'running',
       'enable'     => 'true',
       'hasstatus'  => 'true',
