@@ -2,7 +2,7 @@
 #
 class authldap($nss_admin,$nss_password,$base_dn,$base_host,$home_path) {
 
-  $packages = ['libpam-ldapd','libnss-ldapd','nscd','nslcd']
+  $packages = ['libpam-ldapd','libnss-ldapd','unscd','nslcd']
 
   package { $packages:
     ensure => installed,
