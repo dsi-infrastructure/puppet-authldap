@@ -56,7 +56,7 @@ class authldap($nss_admin,$nss_password,$base_dn,$base_host,$home_path) {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    require    => Package['nscd'],
+    require    => Package['unscd'],
   }
 }
 
