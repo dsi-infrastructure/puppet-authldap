@@ -51,7 +51,7 @@ class authldap($nss_admin,$nss_password,$base_dn,$base_host,$home_path) {
     require    => Package['nslcd'],
   }
 
-  service{'nscd':
+  service{'unscd':
     ensure     => running,
     enable     => true,
     hasstatus  => true,
