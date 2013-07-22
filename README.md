@@ -1,24 +1,18 @@
-# Authldap
+# Authldap [![Build Status](https://travis-ci.org/sipf-infrastructure/authldap.png?branch=master)](https://travis-ci.org/sipf-infrastructure/authldap)
 
-Testé avec Travis CI
-
-[![Build Status](https://travis-ci.org/sipf-infrastructure/authldap.png?branch=master)](https://travis-ci.org/sipf-infrastructure/authldap)
-
-# Installation du module
+## Installation du module
 
 Dans le répertoire '/etc/puppet/modules', lancez les commandes suivantes :
-
-```
+```bash
 $ mkdir authldap
 $ cd authldap
 $ git clone https://github.com/sipf-infrastructure/authldap.git .
-
 ```
 
-# Utilisation
+## Utilisation
 
 Dans le fichier '/etc/puppet/manifests/site.pp', on définit ce qui suit :
-```
+```ruby
 node default {
   class { 'authldap':
     base_host    => 'ldap://ldap_host',
@@ -29,7 +23,8 @@ node default {
   }
 }
 ```
+La valeur par défaut du paramètre **home_path** est **/home** dans la plupart des cas mais peut être différent dans votre environnement.
 
-# A faire
+## A faire
 
 - Ajouter le support LDAPS/TLS
